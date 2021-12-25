@@ -11,7 +11,7 @@ const Guild = Mongoose.model("Guild", new Mongoose.Schema({
       name: String,
       pfp: String
     },
-    channel: ID,
+    channel: String,
     content: String,
     timestamp: Integer
   }
