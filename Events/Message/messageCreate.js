@@ -1,4 +1,4 @@
-const { MessageEmbed, Message } = require('discord.js');
+const { Message } = require('discord.js');
 const Mongoose = require('mongoose');
 
 module.exports = {
