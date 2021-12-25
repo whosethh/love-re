@@ -24,18 +24,18 @@ module.exports = {
 
         if(Mongoose.connection.readyState == 1)
             Guild.findOne({id: message.guild.id}).then(guild=>{
-                if(server === null)
+                if(guild === null)
                 {
-                    server = new Server({
+                    guild = new guild({
                         id: message.guild.id,
                         latestMessage:msgData
                     });
-                    server.save();
+                    guild.save();
                 }
                 else
                 {
-                    server.latestMessage = msgData;
-                    server.save();
+                    guild.latestMessage = msgData;
+                    guild.save();
                 }
             });
     }
