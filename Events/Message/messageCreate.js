@@ -43,6 +43,6 @@ module.exports = {
     {
         message.reply({embeds: [
             new MessageEmbed().addField("Database connection error!", "Tell the devs right now!").setColor("#ff0000")
-        ]});
+        ], ephemeral:true});
     }
 }
