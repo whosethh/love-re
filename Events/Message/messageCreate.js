@@ -17,7 +17,7 @@ module.exports = {
                 name: message.author.tag,
                 pfp: message.author.displayAvatarURL
             },
-            channel: message.channel.name,
+            channel: message.channel.id,
             content: message.content,
             timestamp: Date.now()
         }
