@@ -5,7 +5,7 @@ class ID extends Mongoose.SchemaType
   constructor(key, options)
   {super(key, options, "ID");}
 
-  cast(val)
+  cast(id)
   {
     id = id.toString();
     if(id.length != 18)
