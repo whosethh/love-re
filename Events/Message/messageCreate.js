@@ -1,4 +1,4 @@
-const { Message } = require('discord.js');
+const { MessageEmbed, Message } = require('discord.js');
 const Mongoose = require('mongoose');
 
 module.exports = {
@@ -39,5 +39,10 @@ module.exports = {
                 }
             });
     }
-
+    else
+    {
+        message.reply({embeds: [
+            new MessageEmbed().addField("Database connection error!", "Tell the devs right now!").setColor("#ff0000")
+        ]});
+    }
 }
