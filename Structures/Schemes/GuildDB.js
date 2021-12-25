@@ -8,10 +8,7 @@ const Guild = Mongoose.model("Guild", new Mongoose.Schema({
   },
   latestMessage: {
     user:{
-      id: {
-        type: ID,
-        unique: true
-      },
+      name: String,
       pfp: String
     },
     channel: ID,
