@@ -1,6 +1,6 @@
 const clk = require('chalk')
 const mng = require('mongoose')
-const { mongooseConnectionString } = require('../../config.json')
+const { mongooseConnectionString } = require('../../Structures/config.json')
 
 module.exports = {
     name: 'ready',
