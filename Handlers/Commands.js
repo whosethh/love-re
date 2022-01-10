@@ -64,6 +64,8 @@ module.exports = async (client) => {
                 return [...accumlator, {id: r.id, permissions}]
             }, []);
 
+            const isOff = true 
+
             await MainGuild.commands.permissions.set({ fullPermissions })
 
         })
