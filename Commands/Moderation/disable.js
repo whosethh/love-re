@@ -1,4 +1,8 @@
-const { CommandInteraction, MessageEmbed } = require('discord.js');
+const { Perms } = require('../Validation/Permissions');
+const { promisify } = require('util');
+const { glob } = require('glob');
+const PG = promisify(glob);
+const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: "disable",
