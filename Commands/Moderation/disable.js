@@ -32,6 +32,29 @@ module.exports = {
         const Response = new MessageEmbed()
         .setColor('DARK_BUT_NOT_BLACK');
       
-        
+        CommandsArray = [];
+
+        (await PG(`${process.cwd()}/Commands/**/*.js`)).map(async (file) => {
+            const command = require(file);
+
+            if(!command.name)
+            return Table.addRow(file.split("/")[7], "Failed", "Code: 417")
+
+            if(!command.description)
+            return Table.addRow(command.name, "Failed", "Code: 417") 
+
+            if(command.permission) {
+                if(Perms.includes(command.permission))
+                command.defaultPermission = false;
+                else 
+                return Table.addRow(command.name,"Failed", "Code: 403")
+            }
+
+            client.commands.set(command.name, command);
+            CommandsArray.push(command);
+
+            await Table.addRow(command.name, ("Succsesfull"))
+
+        });
     }
 }
