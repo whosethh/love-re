@@ -3,6 +3,7 @@ const { promisify } = require('util');
 const { glob } = require('glob');
 const PG = promisify(glob);
 const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
+const Ascii = require('ascii-table');
 
 module.exports = {
     name: "disable",
@@ -31,6 +32,8 @@ module.exports = {
 
         const Response = new MessageEmbed()
         .setColor('DARK_BUT_NOT_BLACK');
+
+        const Table = new Ascii();
       
         CommandsArray = [];
 
