@@ -5,7 +5,7 @@ const
   MessageButton,
     } = require("discord.js");
 
-const { OpenTicket } = require("../../Structures/config.json");
+const { OpenTicket } = require("../../../Structures/config.json");
 
 module.exports = {
     name: "ticket",

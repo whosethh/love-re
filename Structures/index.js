@@ -14,4 +14,6 @@ client.commands = new Collection();
     require(`./Handlers/${handler}`)(client, PG, Ascii, clk);
 });
 
+module.exports = { client }
+
 client.login(token)

@@ -1,6 +1,7 @@
-const { CommandInteraction, Client, MessageEmbed } = require('discord.js');
-const { connection } = require('mongoose');
-require('../../Events/Client/ready')
+const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
+const { connection } = require("mongoose");
+require("../../../Events/Client/ready");
+const { devID, devID2 } = require("../../../Structures/config.json");
 
 module.exports = {
     name: 'status',
@@ -16,7 +17,7 @@ module.exports = {
         const Response = new MessageEmbed()
         .setColor('DARK_BUT_NOT_BLACK')
         .setDescription(`**Client Ping**: \`${client.ws.ping}\`ms \n **Uptime**: <t:${parseInt(client.readyTimestamp / 1000)}:R> \n Database: ${switchTo(connection.readyState)}`)
-
+        .addField("devID's", `<@${devID}> <@${devID2}>`)
         interaction.reply({ embeds: [Response] })
 
     }

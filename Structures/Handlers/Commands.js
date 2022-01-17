@@ -1,6 +1,10 @@
 const { Perms } = require('../Validation/Permissions');
 const { Client } = require('discord.js');
-
+const { promisify } = require('util');
+const { glob } = require('glob');
+const PG = promisify(glob);
+const clk = require('chalk')
+const Ascii = require('ascii-table');
 
 /**
  * 
@@ -8,18 +12,18 @@ const { Client } = require('discord.js');
  * 
  */
 
-module.exports = async (client, PG, Ascii, clk) => {
+module.exports = async (client) => {
     const Table = new Ascii('Command Loaded'); 
 
     CommandsArray = [];
 
-    (await PG(`${process.cwd()}/Commands/**/*.js`)).map(async (file) => {
+    (await PG(`${process.cwd()}/Commands/Slash/**/*.js`)).map(async (file) => {
         const command = require(file);
 
         if(!command.name)
         return Table.addRow(file.split("/")[7], "Failed", "Code: 417")
 
-        if(!command.context && !command.description)
+        if(!command.description)
         return Table.addRow(command.name, "Failed", "Code: 417") 
 
         if(command.permission) {
@@ -59,6 +63,8 @@ module.exports = async (client, PG, Ascii, clk) => {
 
                 return [...accumlator, {id: r.id, permissions}]
             }, []);
+
+            const isOff = true 
 
             await MainGuild.commands.permissions.set({ fullPermissions })
 

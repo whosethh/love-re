@@ -3,7 +3,7 @@ const { ButtonInteraction,
         MessageActionRow,
         MessageButton,
     } = require("discord.js");
-    const DB = require("../../Structures/Schemes/TicketDB");
+    const DB = require("../../Structures/Schemas/TicketDB");
     const { ParentID, EveryoneID, OpenedParentID } = require("../../Structures/config.json");
     const { nanoid, customAlphabet} = require("nanoid");
         

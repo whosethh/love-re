@@ -2,7 +2,7 @@
     const { createTranscript } = require("discord-html-transcripts");
 
     const { TranscriptsID } = require("../../Structures/config.json");
-    const DB = require("../../Structures/Schemes/TicketDB");
+    const DB = require("../../Structures/Schemas/TicketDB");
 
     module.exports = {
         name: "interactionCreate",

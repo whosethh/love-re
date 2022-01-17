@@ -8,8 +8,12 @@ module.exports = {
      * 
      */
 
+
+
     execute(message) {
         if(message.author.bot) return;
+
+        console.log(client)
 
         const Log = new MessageEmbed()
             .setColor('RANDOM')
